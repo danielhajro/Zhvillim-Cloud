@@ -1,0 +1,27 @@
+2024-04-18T17:10:29.233+02:00  INFO 15100 --- [main] s.SpringBootRestApiPostgresqlApplication : Starting SpringBootRestApiPostgresqlApplication using Java 17.0.4.1 with PID 15100 (C:\Users\user\Desktop\CloudRepo\SpringRestAPI\target\classes started by user in C:\Users\user\Desktop\CloudRepo\SpringRestAPI)
+2024-04-18T17:10:29.239+02:00  INFO 15100 --- [main] s.SpringBootRestApiPostgresqlApplication : No active profile set, falling back to 1 default profile: "default"
+2024-04-18T17:10:30.416+02:00  INFO 15100 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-18T17:10:30.524+02:00  INFO 15100 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 2 JPA repository interfaces.
+2024-04-18T17:10:31.668+02:00  INFO 15100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-04-18T17:10:31.703+02:00  INFO 15100 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-18T17:10:31.703+02:00  INFO 15100 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-04-18T17:10:31.905+02:00  INFO 15100 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-18T17:10:31.906+02:00  INFO 15100 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2575 ms
+2024-04-18T17:10:32.188+02:00  INFO 15100 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-18T17:10:32.320+02:00  INFO 15100 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2024-04-18T17:10:32.325+02:00  INFO 15100 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-04-18T17:10:32.895+02:00  INFO 15100 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-18T17:10:32.949+02:00  INFO 15100 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-18T17:10:34.067+02:00  INFO 15100 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2513155a
+2024-04-18T17:10:34.071+02:00  INFO 15100 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-18T17:10:34.244+02:00  WARN 15100 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-18T17:10:36.198+02:00  INFO 15100 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-18T17:10:37.749+02:00  INFO 15100 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-18T17:10:38.470+02:00  WARN 15100 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-18T17:10:39.406+02:00  INFO 15100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-04-18T17:10:39.442+02:00  INFO 15100 --- [main] s.SpringBootRestApiPostgresqlApplication : Started SpringBootRestApiPostgresqlApplication in 11.001 seconds (process running for 11.625)
+2024-04-18T17:10:44.740+02:00  INFO 15100 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-18T17:10:44.740+02:00  INFO 15100 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-18T17:10:44.742+02:00  INFO 15100 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-04-18T17:11:07.633+02:00  INFO 15100 --- [http-nio-8080-exec-4] c.h.s.controller.AuthorRestController    : Getting all Authors from the repository
+2024-04-18T17:12:37.474+02:00  INFO 15100 --- [http-nio-8080-exec-9] c.h.s.controller.AuthorRestController    : Getting all Authors from the repository

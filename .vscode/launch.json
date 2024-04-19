@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootRestApiPostgresqlApplication<spring-boot-rest-api-postgresql>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.hendisantika.springbootrestapipostgresql.SpringBootRestApiPostgresqlApplication",
+            "projectName": "spring-boot-rest-api-postgresql",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-svc1
+spec:
+  ports:
+    - port: 8081
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: backend
+  type: ClusterIP  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-svc2
+spec:
+  type: NodePort
+  ports:
+    - port: 8082
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: backend 
+
+# kubectl apply -f app-service.yaml 

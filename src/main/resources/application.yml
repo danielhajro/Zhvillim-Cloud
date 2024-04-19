@@ -1,0 +1,20 @@
+# Spring Boot configuration
+spring:
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://surus.db.elephantsql.com:5432/sfvjmlfp
+    username: sfvjmlfp
+    password: Z8bgV3JC-WWs6nx09diqoC0rAF0Y5iNl
+  # JPA properties
+  jpa:
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+# Server configuration
+server:
+  port: 8080
+# Security configuration
+security:
+  user:
+    name: user
+password: user
