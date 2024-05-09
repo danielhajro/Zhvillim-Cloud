@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +28,10 @@ public class AuthorRestController {
 
     @Autowired
     private AuthorRepository repository;
+    
+    public void setRepository(AuthorRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping
     public ResponseEntity<Author> addAuthor(@RequestBody Author author) {

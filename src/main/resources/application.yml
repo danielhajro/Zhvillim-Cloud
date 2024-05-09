@@ -3,18 +3,25 @@ spring:
   # Database
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://surus.db.elephantsql.com:5432/sfvjmlfp
-    username: sfvjmlfp
-    password: Z8bgV3JC-WWs6nx09diqoC0rAF0Y5iNl
+    url: jdbc:postgresql://flora.db.elephantsql.com:5432/chdmzaew
+    username: chdmzaew
+    password: ea6FVtvS1c3ce6bXz6L1Z55L2fl1wTWS
+  #security properties
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: ${GITHUB_CLIENT_ID}
+            clientSecret: ${GITHUB_CLIENT_SECRET}
   # JPA properties
   jpa:
     hibernate.ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 # Server configuration
 server:
-  port: 8080
-# Security configuration
-security:
-  user:
-    name: user
-password: user
+  port: 8085
+
+  
+
+  

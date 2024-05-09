@@ -1,33 +1,14 @@
 package com.hendisantika.springbootrestapipostgresql.controller;
-
 import com.hendisantika.springbootrestapipostgresql.entity.Book;
 import com.hendisantika.springbootrestapipostgresql.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Optional;
 
-/**
- * Created by IntelliJ IDEA.
- * Project : spring-boot-rest-api-postgresql
- * User: hendisantika
- * Email: hendisantika@gmail.com
- * Telegram : @hendisantika34
- * Date: 2019-01-18
- * Time: 22:07
- * To change this template use File | Settings | File Templates.
- */
 @RestController
 @RequestMapping("/api/books")
 public class BookRestController {
@@ -35,8 +16,12 @@ public class BookRestController {
     @Autowired
     private BookRepository repository;
 
+     public void setRepository(BookRepository repository) {
+        this.repository = repository;
+    }
+
     @PostMapping
-    public ResponseEntity<?> addBook(@RequestBody Book book) {
+    public ResponseEntity<Book> addBook(@RequestBody Book book) {
         return new ResponseEntity<>(repository.save(book), HttpStatus.CREATED);
     }
 
@@ -47,7 +32,9 @@ public class BookRestController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookWithId(@PathVariable Long id) {
-        return new ResponseEntity<Book>(repository.findById(id).get(), HttpStatus.OK);
+        Optional<Book> bookOptional = repository.findById(id);
+        return bookOptional.map(book -> new ResponseEntity<>(book, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping(params = {"name"})
@@ -57,23 +44,27 @@ public class BookRestController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBookFromDB(@PathVariable("id") long id, @RequestBody Book book) {
-
         Optional<Book> currentBookOpt = repository.findById(id);
-        Book currentBook = currentBookOpt.get();
-        currentBook.setName(book.getName());
-        currentBook.setDescription(book.getDescription());
-        currentBook.setTags(book.getTags());
-
-        return new ResponseEntity<>(repository.save(currentBook), HttpStatus.OK);
+        if (currentBookOpt.isPresent()) {
+            Book currentBook = currentBookOpt.get();
+            currentBook.setName(book.getName());
+            currentBook.setDescription(book.getDescription());
+            currentBook.setTags(book.getTags());
+            return new ResponseEntity<>(repository.save(currentBook), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBookWithId(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteBookWithId(@PathVariable Long id) {
         repository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping
-    public void deleteAllBooks() {
+    public ResponseEntity<Void> deleteAllBooks() {
         repository.deleteAll();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
